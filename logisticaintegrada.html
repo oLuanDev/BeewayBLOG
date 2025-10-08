@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logística Integrada</title>
+  <style>
+
+    .logo-link {
+  text-decoration: none; /* remove o sublinhado */
+  color: inherit;        /* mantém a cor do texto original */
+  cursor: pointer;       /* muda o cursor para mãozinha ao passar */
+}
+
+
+    /* ======== RESET ======== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #f7f7f7;
+    }
+
+    /* ======== NAVBAR ======== */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #ffb400; /* Cor amarela inspirada em abelha */
+      padding: 12px 050px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* LOGO + TEXTO */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #222;
+    }
+
+    .logo img {
+      width: 40px;
+      height: 40px;
+    }
+
+    /* LINKS */
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #222;
+      font-weight: 100px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    /* ======== RESPONSIVIDADE ======== */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+    }
+
+    /* ======== SEÇÃO INICIAL ======== */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px;
+  background-color: #fff;
+  min-height: 85vh;
+}
+
+/* IMAGEM À ESQUERDA */
+.hero-image {
+  flex: 1;
+  background-image: url('https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=900&q=60');
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  height: 500px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* CONTEÚDO À DIREITA */
+.hero-content {
+  flex: 1;
+  padding-left: 80px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  color: #222;
+  letter-spacing: 1px;
+}
+
+.hero-content .slogan {
+  font-size: 1.3rem;
+  margin: 15px 0 25px;
+  color: #444;
+}
+
+/* CAIXA DE PESQUISA */
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 12px 18px;
+  border-radius: 30px;
+  border: 2px solid #ffb400;
+  outline: none;
+  font-size: 1rem;
+}
+
+.search-box button {
+  background-color: #ffb400;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-box button:hover {
+  background-color: #e39f00;
+}
+
+/* ======== RESPONSIVIDADE ======== */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 30px;
+  }
+
+  .hero-content {
+    padding-left: 0;
+  }
+
+  .search-box {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .search-box input {
+    width: 100%;
+  }
+
+  .search-box button {
+    width: 100%;
+  }
+}
+
+/* ======== SEÇÃO DE POSTS ======== */
+.posts-section {
+  background-color: #f7f7f7;
+  padding: 60px 0;
+}
+
+.section-subtitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  text-align: left;
+  margin-left: 130px;
+  margin-bottom: 30px;
+}
+
+.posts-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 0 40px;
+}
+
+/* CARD BASE */
+.post {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 300px;
+  height: 350px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.post:hover {
+  transform: scale(1.03);
+}
+
+/* IMAGEM */
+.post img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(70%); /* escurece levemente a imagem pra o texto aparecer melhor */
+}
+
+/* TEXTO SOBREPOSTO */
+.post-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  color: white;
+  text-align: left;
+}
+
+.post-overlay h3 {
+  font-size: 1.3rem;
+  margin-bottom: 6px;
+}
+
+.post-overlay p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* POST MAIOR (DESTAQUE) */
+.post.destaque {
+  width: 550px;
+  height: 350px;
+}
+
+
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  padding: 100px 20px;
+  background-color: #fffbe6;
+}
+
+.hero-content h1 {
+  font-size: 60px;
+  color: #ffb400;
+}
+
+.hero-content .slogan {
+  font-size: 20px;
+  color: #333;
+}
+
+.bee {
+  width: 60px;  /* maior */
+  height: 60px;
+  background-image: url('https://cdn-icons-png.flaticon.com/512/1607/16072720.png');
+  background-size: cover;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+
+
+/*BOTÕES AVANÇAR E VOLTAR */
+
+/* Centraliza tudo na tela */
+/* Centraliza tudo na tela */
+.centralizar {
+  display: flex;
+  justify-content: center; /* centraliza horizontalmente */
+  align-items: center;     /* centraliza verticalmente */
+}
+
+/* Botões lado a lado */
+.botoes-lado-a-lado {
+  display: flex;
+  gap: 10px; /* espaço entre os botões */
+    margin-bottom: 40px;
+
+}
+
+.btn-voltar, .btn-prosseguir {
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-voltar {
+  background-color: #777;
+}
+
+.btn-voltar:hover {
+  background-color: #555;
+}
+
+.btn-prosseguir {
+  background-color: #FFB400;
+}
+
+.btn-prosseguir:hover {
+  background-color: #e6a500;
+}
+
+
+  body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    h1 {
+      color: #FFB400;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .imagens {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .imagens img {
+      width: 300px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Botões de navegação */
+    .botoes-lado-a-lado {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .btn-voltar, .btn-prosseguir {
+      padding: 10px 20px;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .btn-voltar {
+      background-color: #777;
+    }
+
+    .btn-voltar:hover {
+      background-color: #555;
+    }
+
+    .btn-prosseguir {
+      background-color: #FFB400;
+    }
+
+    .btn-prosseguir:hover {
+      background-color: #e6a500;
+    }
+
+    
+.container1 {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #FFB400;
+  font-size: 3em;
+  margin-bottom: 50px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 100px; /* espaço horizontal e vertical entre cards */
+}
+
+
+
+/* Card */
+.card {
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  min-height: 450px; /* altura mínima suficiente para conteúdo */
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute; /* garante que frente e verso fiquem sobrepostos */
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 15px;
+  backface-visibility: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.card-front img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-front h2 {
+  color: #FFB400;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  text-align: center;
+}
+
+.card-front p, .card-front ul {
+  line-height: 1.5;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.card-front ul {
+  padding-left: 0;
+  list-style-type: disc;
+}
+
+/* Verso */
+.card-back {
+  background-color: #FFB400;
+  color: #fff;
+  transform: rotateY(180deg);
+  justify-content: center;
+}
+
+.card-back h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.8em;
+  text-align: center;
+}
+
+.card-back p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Botões */
+.botoes-lado-a-lado {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 50px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 12px 25px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-voltar { background-color: #777; }
+.btn-voltar:hover { background-color: #555; }
+
+.btn-prosseguir { background-color: #FFB400; color: #000; }
+.btn-prosseguir:hover { background-color: #e6a500; }
+
+@media (max-width: 768px) {
+  .card-front img {
+    height: 180px;
+  }
+}
+
+  </style>
+</head>
+  <nav>
+      <!-- LOGO E TEXTO -->
+        <a href="index.html" class="logo-link">
+          <div class="logo">
+            Beeway 🐝
+          </div>
+        </a>
+
+      <!-- LINKS -->
+            <div class="nav-links">
+                <a href="index.html">Início</a>
+                <a href="oqueelogistica.html">O que é Logística?</a>
+                <a href="logisticaintegrada.html">Logística Integrada</a>
+                <a href="cadeiadesuprimentos.html">Cadeia de Suprimentos</a>
+                <a href="construção.html">Sustentabilidade</a>
+                <a href="blog.html">Blog</a>
+                <a href="sobrenós.html">Sobre Nós</a>
+                <a href="contato.html">Contato</a>
+
+
+      </div>
+    </nav>
+
+<body>
+  <div class="container">
+
+    <h1>Logística Integrada</h1>
+    <p>
+      A Logística Integrada é a prática de gerenciar de forma coordenada todas as atividades logísticas de uma empresa, desde o recebimento de matérias-primas, armazenamento, produção, até a distribuição final ao cliente. 
+      O objetivo é otimizar processos, reduzir custos, aumentar a eficiência e melhorar a satisfação do cliente.
+    </p>
+
+    <div class="imagens">
+      <img src="https://cdn-icons-png.flaticon.com/512/2910/2910763.png" alt="Transporte">
+      <img src="https://cdn-icons-png.flaticon.com/512/2910/2910790.png" alt="Armazenagem">
+      <img src="https://cdn-icons-png.flaticon.com/512/2910/2910782.png" alt="Distribuição">
+    </div>
+
+    <p>
+      Com a Logística Integrada, todas as áreas da cadeia de suprimentos trabalham de forma sincronizada, utilizando sistemas de informação, planejamento de demanda e monitoramento em tempo real. Isso garante entregas mais rápidas, redução de desperdícios e maior competitividade no mercado.
+    </p>
+
+  <div class="container">
+<h1>Metodologias de Logística</h1>
+
+<p style="text-align:center; font-size:1.1em; max-width:600px; margin: 0 auto 30px auto; line-height:1.4;">
+  Dentro da Logística Integrada, existem algumas metodologias importantes que ajudam a otimizar processos e melhorar a eficiência.
+</p>
+
+<div class="cards">
+
+  <!-- Kanban -->
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="https://cdn-icons-png.flaticon.com/512/2910/2910763.png" alt="Kanban">
+        <h2>Kanban</h2>
+        <p>Metodologia de gestão visual que organiza tarefas e produtos para melhorar o fluxo de trabalho.</p>
+        <ul>
+          <li>Controle visual com cartões.</li>
+          <li>Evita gargalos e excesso de produção.</li>
+        </ul>
+      </div>
+      <div class="card-back">
+        <h3>História do Kanban</h3>
+        <p>Criado pela Toyota nos anos 1950, como parte do Sistema Toyota de Produção, para controlar estoques e aumentar eficiência. Hoje é usado em fábricas, projetos e equipes de TI.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Kaizen -->
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="https://cdn-icons-png.flaticon.com/512/2910/2910790.png" alt="Kaizen">
+        <h2>Kaizen</h2>
+        <p>Filosofia de melhoria contínua focada em pequenas mudanças diárias.</p>
+        <ul>
+          <li>Participação de todos os colaboradores.</li>
+          <li>Reduz desperdícios e aumenta eficiência.</li>
+        </ul>
+      </div>
+      <div class="card-back">
+        <h3>História do Kaizen</h3>
+        <p>Surgiu no Japão pós-Segunda Guerra Mundial e foi incorporado pela Toyota para otimizar processos e aumentar a competitividade. Significa “mudança para melhor”, incentivando pequenas melhorias contínuas.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5S -->
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="https://cdn-icons-png.flaticon.com/512/2910/2910782.png" alt="5S">
+        <h2>5S</h2>
+        <p>Metodologia de organização do ambiente de trabalho para aumentar produtividade e segurança.</p>
+        <ul>
+          <li>Seiri: separar itens necessários.</li>
+          <li>Seiton: organizar itens para fácil acesso.</li>
+        </ul>
+      </div>
+      <div class="card-back">
+        <h3>História do 5S</h3>
+        <p>Desenvolvido no Japão nos anos 1950, criado para organizar e padronizar o ambiente de trabalho, reduzindo desperdícios e promovendo disciplina nas empresas.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Just In Time -->
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="https://cdn-icons-png.flaticon.com/512/2910/2910785.png" alt="Just In Time">
+        <h2>Just In Time</h2>
+        <p>Produzir ou adquirir apenas o necessário no momento certo, evitando estoques e desperdícios.</p>
+        <ul>
+          <li>Minimiza custos de armazenagem.</li>
+          <li>Produção sincronizada com pedidos.</li>
+        </ul>
+      </div>
+      <div class="card-back">
+        <h3>História do Just In Time</h3>
+        <p>Criado pela Toyota como parte do Sistema Toyota de Produção, o JIT revolucionou a indústria ao reduzir estoques e tornar a produção mais eficiente e ágil.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="botoes-lado-a-lado">
+  <a href="oqueelogistica.html" class="btn btn-voltar">← Voltar</a>
+  <a href="cadeiadesuprimentos.html" class="btn btn-prosseguir">Prosseguir →</a>
+</div>
+
+</div>
+
+
+
+<!-- Footer -->
+<footer style="background-color:#2E3B4E; color:#fff; padding:40px 20px; font-family:Arial,sans-serif;">
+  <div style="max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start; gap:20px;">
+
+    <!-- Esquerda: Nome do site e slogan -->
+    <div style="flex:1; min-width:200px;">
+      <h2 style="margin:0; font-size:1.5em;">Beeway Logística</h2>
+      <p style="margin:5px 0 10px 0; font-size:1em; font-style:italic;">Simplicando a Logística para você</p>
+      <p style="margin:0; font-size:0.9em;">© 2025. Todos os direitos reservados.</p>
+    </div>
+
+    <!-- Coluna: Contato -->
+    <div style="flex:1; min-width:150px;">
+      <h3 style="margin-bottom:10px; font-size:1.1em;">Contato</h3>
+      <p style="margin:0 0 5px 0;">✉️ contato@beeway.com</p>
+      <p style="margin:0;">📞 +55 11 99999-9999</p>
+    </div>
+
+    <!-- Coluna: Parcerias -->
+    <div style="flex:1; min-width:150px;">
+      <h3 style="margin-bottom:10px; font-size:1.1em;">Parcerias</h3>
+      <p style="margin:0 0 5px 0;">💼 Empresas</p>
+      <p style="margin:0;">🤝 Transportadoras</p>
+      <p style="margin:0;">📦 Fornecedores</p>
+    </div>
+
+    <!-- Coluna: Conteúdos -->
+    <div style="flex:1; min-width:150px;">
+      <h3 style="margin-bottom:10px; font-size:1.1em;">Conteúdos</h3>
+      <p style="margin:0 0 5px 0;">📄 Blog</p>
+      <p style="margin:0 0 5px 0;">🎥 Vídeos</p>
+      <p style="margin:0;">📌 Guias e Tutoriais</p>
+    </div>
+
+  </div>
+</footer>
+
+
+
+
+</body>
+</html>

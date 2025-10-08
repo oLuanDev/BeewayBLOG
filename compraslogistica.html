@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compras</title>
+<link rel="stylesheet" href="compras.css">
+
+
+ <style>
+
+    .logo-link {
+  text-decoration: none; /* remove o sublinhado */
+  color: inherit;        /* mantém a cor do texto original */
+  cursor: pointer;       /* muda o cursor para mãozinha ao passar */
+}
+
+
+    /* ======== RESET ======== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #f7f7f7;
+    }
+
+    /* ======== NAVBAR ======== */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #ffb400; /* Cor amarela inspirada em abelha */
+      padding: 12px 050px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* LOGO + TEXTO */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #222;
+    }
+
+    .logo img {
+      width: 40px;
+      height: 40px;
+    }
+
+    /* LINKS */
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #222;
+      font-weight: 100px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    /* ======== RESPONSIVIDADE ======== */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+    }
+
+    /* ======== SEÇÃO INICIAL ======== */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px;
+  background-color: #fff;
+  min-height: 85vh;
+}
+
+/* IMAGEM À ESQUERDA */
+.hero-image {
+  flex: 1;
+  background-image: url('https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=900&q=60');
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  height: 500px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* CONTEÚDO À DIREITA */
+.hero-content {
+  flex: 1;
+  padding-left: 80px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  color: #222;
+  letter-spacing: 1px;
+}
+
+.hero-content .slogan {
+  font-size: 1.3rem;
+  margin: 15px 0 25px;
+  color: #444;
+}
+
+/* CAIXA DE PESQUISA */
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 12px 18px;
+  border-radius: 30px;
+  border: 2px solid #ffb400;
+  outline: none;
+  font-size: 1rem;
+}
+
+.search-box button {
+  background-color: #ffb400;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-box button:hover {
+  background-color: #e39f00;
+}
+
+/* ======== RESPONSIVIDADE ======== */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 30px;
+  }
+
+  .hero-content {
+    padding-left: 0;
+  }
+
+  .search-box {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .search-box input {
+    width: 100%;
+  }
+
+  .search-box button {
+    width: 100%;
+  }
+}
+
+/* ======== SEÇÃO DE POSTS ======== */
+.posts-section {
+  background-color: #f7f7f7;
+  padding: 60px 0;
+}
+
+.section-subtitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  text-align: left;
+  margin-left: 130px;
+  margin-bottom: 30px;
+}
+
+.posts-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 0 40px;
+}
+
+/* CARD BASE */
+.post {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 300px;
+  height: 350px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.post:hover {
+  transform: scale(1.03);
+}
+
+/* IMAGEM */
+.post img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(70%); /* escurece levemente a imagem pra o texto aparecer melhor */
+}
+
+/* TEXTO SOBREPOSTO */
+.post-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  color: white;
+  text-align: left;
+}
+
+.post-overlay h3 {
+  font-size: 1.3rem;
+  margin-bottom: 6px;
+}
+
+.post-overlay p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* POST MAIOR (DESTAQUE) */
+.post.destaque {
+  width: 550px;
+  height: 350px;
+}
+
+
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  padding: 100px 20px;
+  background-color: #fffbe6;
+}
+
+.hero-content h1 {
+  font-size: 60px;
+  color: #ffb400;
+}
+
+.hero-content .slogan {
+  font-size: 20px;
+  color: #333;
+}
+
+.bee {
+  width: 60px;  /* maior */
+  height: 60px;
+  background-image: url('https://cdn-icons-png.flaticon.com/512/1607/16072720.png');
+  background-size: cover;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+
+
+/*BOTÕES AVANÇAR E VOLTAR */
+
+/* Centraliza tudo na tela */
+/* Centraliza tudo na tela */
+.centralizar {
+  display: flex;
+  justify-content: center; /* centraliza horizontalmente */
+  align-items: center;     /* centraliza verticalmente */
+}
+
+/* Botões lado a lado */
+.botoes-lado-a-lado {
+  display: flex;
+  gap: 10px; /* espaço entre os botões */
+}
+
+.btn-voltar, .btn-prosseguir {
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-voltar {
+  background-color: #777;
+}
+
+.btn-voltar:hover {
+  background-color: #555;
+}
+
+.btn-prosseguir {
+  background-color: #FFB400;
+}
+
+.btn-prosseguir:hover {
+  background-color: #e6a500;
+}
+
+
+ 
+
+    /* Botões de navegação */
+    .botoes-lado-a-lado {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .btn-voltar, .btn-prosseguir {
+      padding: 10px 20px;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .btn-voltar {
+      background-color: #777;
+    }
+
+    .btn-voltar:hover {
+      background-color: #555;
+    }
+
+    .btn-prosseguir {
+      background-color: #FFB400;
+    }
+
+    .btn-prosseguir:hover {
+      background-color: #e6a500;
+    }
+
+
+/* Card */
+.card {
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  min-height: 450px; /* altura mínima suficiente para conteúdo */
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute; /* garante que frente e verso fiquem sobrepostos */
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 15px;
+  backface-visibility: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.card-front img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-front h2 {
+  color: #FFB400;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  text-align: center;
+}
+
+.card-front p, .card-front ul {
+  line-height: 1.5;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.card-front ul {
+  padding-left: 0;
+  list-style-type: disc;
+}
+
+/* Verso */
+.card-back {
+  background-color: #FFB400;
+  color: #fff;
+  transform: rotateY(180deg);
+  justify-content: center;
+}
+
+.card-back h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.8em;
+  text-align: center;
+}
+
+.card-back p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Botões */
+.botoes-lado-a-lado {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 50px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 12px 25px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-voltar { background-color: #777; }
+.btn-voltar:hover { background-color: #555; }
+
+.btn-prosseguir { background-color: #FFB400; color: #000; }
+.btn-prosseguir:hover { background-color: #e6a500; }
+
+@media (max-width: 768px) {
+  .card-front img {
+    height: 180px;
+  }
+}
+
+  </style>
+
+
+
+</head>
+
+
+ <nav>
+      <!-- LOGO E TEXTO -->
+        <a href="index.html" class="logo-link">
+          <div class="logo">
+            Beeway 🐝
+          </div>
+        </a>
+
+      <!-- LINKS -->
+      <div class="nav-links">
+                <a href="index.html">Início</a>
+                <a href="oqueelogistica.html">O que é Logística?</a>
+                <a href="principais-processos.html">Logística Integrada</a>
+                <a href="ferramentas-tecnologias.html">Cadeia de Suprimentos</a>
+                <a href="sustentabilidade.html">Sustentabilidade</a>
+                <a href="blog.html">Blog</a>
+                <a href="sobre-nos.html">Sobre Nós</a>
+                <a href="contato.html">Contato</a>
+
+      </div>
+    </nav>
+
+
+<body>
+
+<div class="container">
+  <h1>Compras</h1>
+
+  <p class="intro">
+    Compras é um dos pilares da Logística Integrada, garantindo que materiais, produtos e serviços cheguem no momento certo, 
+    com qualidade adequada e custos controlados. Um processo de compras eficiente conecta fornecedores, gestores e áreas internas, 
+    prevenindo atrasos, desperdícios e problemas na produção, sendo estratégico para a competitividade da empresa.
+  </p>
+
+  <div class="cards">
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2910/2910763.png" alt="Tipos de Compras">
+      <h2>Tipos de Compras</h2>
+      <p class="details">
+        <strong>Estratégicas:</strong> itens de alto valor ou críticos, exigindo análise cuidadosa de fornecedores e contratos de longo prazo.<br>
+        <strong>Táticas:</strong> itens recorrentes, focando em otimização de custos e eficiência.<br>
+        <strong>Operacionais:</strong> materiais de baixo valor, consumíveis diários, com processos mais simples de aquisição.
+      </p>
+    </div>
+
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2910/2910760.png" alt="Etapas do Processo">
+      <h2>Etapas do Processo</h2>
+      <p class="details">
+        1. <strong>Identificação da necessidade:</strong> compreender o que cada área precisa.<br>
+        2. <strong>Pesquisa de fornecedores:</strong> buscar opções confiáveis e comparar preços.<br>
+        3. <strong>Negociação:</strong> acertar prazos, preços e condições.<br>
+        4. <strong>Emissão do pedido:</strong> formalizar a compra.<br>
+        5. <strong>Recebimento e conferência:</strong> garantir correspondência com o pedido.<br>
+        6. <strong>Pagamento e controle:</strong> registrar custos e atualizar estoque.
+      </p>
+    </div>
+
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2910/2910788.png" alt="Ferramentas">
+      <h2>Ferramentas & Técnicas</h2>
+      <p class="details">
+        - <strong>ERP:</strong> sistemas integrados para controlar pedidos, estoque e fornecedores.<br>
+        - <strong>RFQ / RFI / RFP:</strong> métodos de solicitação e análise de propostas.<br>
+        - <strong>Compras Just in Time:</strong> receber materiais apenas quando necessários, evitando estoque excessivo.
+      </p>
+    </div>
+
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2910/2910766.png" alt="Boas Práticas">
+      <h2>Boas Práticas</h2>
+      <p class="details">
+        - Planejar compras com antecedência para evitar atrasos.<br>
+        - Padronizar fornecedores confiáveis.<br>
+        - Avaliar custo-benefício.<br>
+        - Monitorar prazos e manter comunicação constante com fornecedores.
+      </p>
+    </div>
+  </div>
+
+  <p style="text-align:center; font-size:1.15em; max-width:800px; margin: 50px auto 0 auto; line-height:1.6;">
+    Compras é uma atividade estratégica que impacta diretamente na produtividade, custos e satisfação do cliente. 
+    Empresas que estruturam bem suas compras reduzem desperdícios, fortalecem parcerias com fornecedores e garantem que todos os setores recebam o que precisam no momento certo, 
+    fortalecendo toda a cadeia de logística integrada.
+  </p>
+
+  <div class="botoes-lado-a-lado">
+    <a href="cadeiadesuprimentos.html" class="btn btn-voltar">← Voltar</a>
+    <a href="oqueelogistica.html" class="btn btn-prosseguir">Prosseguir →</a>
+  </div>
+</div>
+
+
+<!-- Footer -->
+<footer style="background-color:#2E3B4E; color:#fff; padding:40px 20px; font-family:Arial,sans-serif;">
+  <div style="max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start; gap:20px;">
+
+    <!-- Esquerda: Nome do site e slogan -->
+    <div style="flex:1; min-width:200px;">
+      <h2 style="margin:0; font-size:1.5em;">Beeway Logística</h2>
+      <p style="margin:5px 0 10px 0; font-size:1em; font-style:italic;">Simplicando a Logística para você</p>
+      <p style="margin:0; font-size:0.9em;">© 2025. Todos os direitos reservados.</p>
+    </div>
+
+    <!-- Coluna: Contato -->
+    <div style="flex:1; min-width:150px;">
+      <h3 style="margin-bottom:10px; font-size:1.1em;">Contato</h3>
+      <p style="margin:0 0 5px 0;">✉️ contato@beeway.com</p>
+      <p style="margin:0;">📞 +55 11 99999-9999</p>
+    </div>
+
+    <!-- Coluna: Parcerias -->
+    <div style="flex:1; min-width:150px;">
+      <h3 style="margin-bottom:10px; font-size:1.1em;">Parcerias</h3>
+      <p style="margin:0 0 5px 0;">💼 Empresas</p>
+      <p style="margin:0;">🤝 Transportadoras</p>
+      <p style="margin:0;">📦 Fornecedores</p>
+    </div>
+
+    <!-- Coluna: Conteúdos -->
+    <div style="flex:1; min-width:150px;">
+      <h3 style="margin-bottom:10px; font-size:1.1em;">Conteúdos</h3>
+      <p style="margin:0 0 5px 0;">📄 Blog</p>
+      <p style="margin:0 0 5px 0;">🎥 Vídeos</p>
+      <p style="margin:0;">📌 Guias e Tutoriais</p>
+    </div>
+
+  </div>
+</footer>
+
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Em Construção 🚧</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: linear-gradient(135deg, #f1c40f, #f39c12);
+      color: #222;
+    }
+
+    .container {
+      text-align: center;
+      margin-top: 120px;
+      animation: fadeIn 1s ease;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+    }
+
+    #countdown {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+
+    button {
+      background: #222;
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #000;
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      background: rgba(0,0,0,0.1);
+      font-size: 0.9rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>🚧 Em Construção 🚧</h1>
+    <p>Estamos trabalhando para trazer algo incrível!</p>
+
+    <div id="countdown">
+      <span id="days">00</span>d :
+      <span id="hours">00</span>h :
+      <span id="minutes">00</span>m :
+      <span id="seconds">00</span>s
+    </div>
+
+    <button onclick="notifyMe()">Avise-me quando estiver pronto</button>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 - Todos os direitos reservados | Luan Dev</p>
+  </footer>
+
+  <script>
+    // Define uma data futura (ajuste aqui se quiser)
+    const launchDate = new Date("Dec 31, 2025 00:00:00").getTime();
+
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = launchDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").textContent = days.toString().padStart(2, '0');
+      document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+      document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+      document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+
+      if (distance < 0) {
+        clearInterval(timer);
+        document.getElementById("countdown").textContent = "🚀 Já estamos no ar!";
+      }
+    }, 1000);
+
+    // Botão de aviso
+    function notifyMe() {
+      alert("Te avisaremos quando o site estiver pronto! 🚧");
+    }
+  </script>
+</body>
+</html>

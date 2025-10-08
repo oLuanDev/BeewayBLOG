@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metodologias de Logística - Flip Cards</title>
+<style>
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f2f5;
+  color: #333;
+}
+
+.container1 {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #FFB400;
+  font-size: 3em;
+  margin-bottom: 50px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 100px; /* espaço horizontal e vertical entre cards */
+}
+
+
+
+/* Card */
+.card {
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  min-height: 450px; /* altura mínima suficiente para conteúdo */
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute; /* garante que frente e verso fiquem sobrepostos */
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 15px;
+  backface-visibility: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.card-front img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-front h2 {
+  color: #FFB400;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  text-align: center;
+}
+
+.card-front p, .card-front ul {
+  line-height: 1.5;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.card-front ul {
+  padding-left: 0;
+  list-style-type: disc;
+}
+
+/* Verso */
+.card-back {
+  background-color: #FFB400;
+  color: #fff;
+  transform: rotateY(180deg);
+  justify-content: center;
+}
+
+.card-back h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.8em;
+  text-align: center;
+}
+
+.card-back p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Botões */
+.botoes-lado-a-lado {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 50px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 12px 25px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-voltar { background-color: #777; }
+.btn-voltar:hover { background-color: #555; }
+
+.btn-prosseguir { background-color: #FFB400; color: #000; }
+.btn-prosseguir:hover { background-color: #e6a500; }
+
+@media (max-width: 768px) {
+  .card-front img {
+    height: 180px;
+  }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Metodologias de Logística</h1>
+
+<div class="cards">
+
+  <!-- Kanban -->
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="https://cdn-icons-png.flaticon.com/512/2910/2910763.png" alt="Kanban">
+        <h2>Kanban</h2>
+        <p>Metodologia de gestão visual que organiza tarefas e produtos para melhorar o fluxo de trabalho.</p>
+        <ul>
+          <li>Controle visual com cartões.</li>
+          <li>Evita gargalos e excesso de produção.</li>
+        </ul>
+      </div>
+      <div class="card-back">
+        <h3>História do Kanban</h3>
+        <p>Criado pela Toyota nos anos 1950, como parte do Sistema Toyota de Produção, para controlar estoques e aumentar eficiência. Hoje é usado em fábricas, projetos e equipes de TI.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Kaizen -->
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="https://cdn-icons-png.flaticon.com/512/2910/2910790.png" alt="Kaizen">
+        <h2>Kaizen</h2>
+        <p>Filosofia de melhoria contínua focada em pequenas mudanças diárias.</p>
+        <ul>
+          <li>Participação de todos os colaboradores.</li>
+          <li>Reduz desperdícios e aumenta eficiência.</li>
+        </ul>
+      </div>
+      <div class="card-back">
+        <h3>História do Kaizen</h3>
+        <p>Surgiu no Japão pós-Segunda Guerra Mundial e foi incorporado pela Toyota para otimizar processos e aumentar a competitividade. Significa “mudança para melhor”, incentivando pequenas melhorias contínuas.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5S -->
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="https://cdn-icons-png.flaticon.com/512/2910/2910782.png" alt="5S">
+        <h2>5S</h2>
+        <p>Metodologia de organização do ambiente de trabalho para aumentar produtividade e segurança.</p>
+        <ul>
+          <li>Seiri: separar itens necessários.</li>
+          <li>Seiton: organizar itens para fácil acesso.</li>
+        </ul>
+      </div>
+      <div class="card-back">
+        <h3>História do 5S</h3>
+        <p>Desenvolvido no Japão nos anos 1950, criado para organizar e padronizar o ambiente de trabalho, reduzindo desperdícios e promovendo disciplina nas empresas.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Just In Time -->
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="https://cdn-icons-png.flaticon.com/512/2910/2910785.png" alt="Just In Time">
+        <h2>Just In Time</h2>
+        <p>Produzir ou adquirir apenas o necessário no momento certo, evitando estoques e desperdícios.</p>
+        <ul>
+          <li>Minimiza custos de armazenagem.</li>
+          <li>Produção sincronizada com pedidos.</li>
+        </ul>
+      </div>
+      <div class="card-back">
+        <h3>História do Just In Time</h3>
+        <p>Criado pela Toyota como parte do Sistema Toyota de Produção, o JIT revolucionou a indústria ao reduzir estoques e tornar a produção mais eficiente e ágil.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="botoes-lado-a-lado">
+  <a href="principais-processos.html" class="btn btn-voltar">← Voltar</a>
+  <a href="ferramentas-tecnologias.html" class="btn btn-prosseguir">Prosseguir →</a>
+</div>
+
+</div>
+</body>
+</html>

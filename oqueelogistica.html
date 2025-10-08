@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>oque é logistica</title>
+     <link rel="stylesheet" href="style-logistica.css">
+  <style>
+
+    .logo-link {
+  text-decoration: none; /* remove o sublinhado */
+  color: inherit;        /* mantém a cor do texto original */
+  cursor: pointer;       /* muda o cursor para mãozinha ao passar */
+}
+
+
+    /* ======== RESET ======== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #f7f7f7;
+    }
+
+    /* ======== NAVBAR ======== */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #ffb400; /* Cor amarela inspirada em abelha */
+      padding: 12px 050px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* LOGO + TEXTO */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #222;
+    }
+
+    .logo img {
+      width: 40px;
+      height: 40px;
+    }
+
+    /* LINKS */
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #222;
+      font-weight: 100px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    /* ======== RESPONSIVIDADE ======== */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+    }
+
+    /* ======== SEÇÃO INICIAL ======== */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px;
+  background-color: #fff;
+  min-height: 85vh;
+}
+
+/* IMAGEM À ESQUERDA */
+.hero-image {
+  flex: 1;
+  background-image: url('https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=900&q=60');
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  height: 500px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* CONTEÚDO À DIREITA */
+.hero-content {
+  flex: 1;
+  padding-left: 80px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  color: #222;
+  letter-spacing: 1px;
+}
+
+.hero-content .slogan {
+  font-size: 1.3rem;
+  margin: 15px 0 25px;
+  color: #444;
+}
+
+/* CAIXA DE PESQUISA */
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 12px 18px;
+  border-radius: 30px;
+  border: 2px solid #ffb400;
+  outline: none;
+  font-size: 1rem;
+}
+
+.search-box button {
+  background-color: #ffb400;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-box button:hover {
+  background-color: #e39f00;
+}
+
+/* ======== RESPONSIVIDADE ======== */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 30px;
+  }
+
+  .hero-content {
+    padding-left: 0;
+  }
+
+  .search-box {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .search-box input {
+    width: 100%;
+  }
+
+  .search-box button {
+    width: 100%;
+  }
+}
+
+/* ======== SEÇÃO DE POSTS ======== */
+.posts-section {
+  background-color: #f7f7f7;
+  padding: 60px 0;
+}
+
+.section-subtitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  text-align: left;
+  margin-left: 130px;
+  margin-bottom: 30px;
+}
+
+.posts-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 0 40px;
+}
+
+/* CARD BASE */
+.post {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 300px;
+  height: 350px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.post:hover {
+  transform: scale(1.03);
+}
+
+/* IMAGEM */
+.post img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(70%); /* escurece levemente a imagem pra o texto aparecer melhor */
+}
+
+/* TEXTO SOBREPOSTO */
+.post-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  color: white;
+  text-align: left;
+}
+
+.post-overlay h3 {
+  font-size: 1.3rem;
+  margin-bottom: 6px;
+}
+
+.post-overlay p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* POST MAIOR (DESTAQUE) */
+.post.destaque {
+  width: 550px;
+  height: 350px;
+}
+
+
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  padding: 100px 20px;
+  background-color: #fffbe6;
+}
+
+.hero-content h1 {
+  font-size: 60px;
+  color: #ffb400;
+}
+
+.hero-content .slogan {
+  font-size: 20px;
+  color: #333;
+}
+
+.bee {
+  width: 60px;  /* maior */
+  height: 60px;
+  background-image: url('https://cdn-icons-png.flaticon.com/512/1607/16072720.png');
+  background-size: cover;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+
+
+/*BOTÕES AVANÇAR E VOLTAR */
+
+/* Centraliza tudo na tela */
+/* Centraliza tudo na tela */
+.centralizar {
+  display: flex;
+  justify-content: center; /* centraliza horizontalmente */
+  align-items: center;     /* centraliza verticalmente */
+}
+
+/* Botões lado a lado */
+.botoes-lado-a-lado {
+  display: flex;
+  gap: 10px; /* espaço entre os botões */
+    margin-bottom: 40px;
+
+}
+
+.btn-voltar, .btn-prosseguir {
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-voltar {
+  background-color: #777;
+}
+
+.btn-voltar:hover {
+  background-color: #555;
+}
+
+.btn-prosseguir {
+  background-color: #FFB400;
+}
+
+.btn-prosseguir:hover {
+  background-color: #e6a500;
+}
+
+
+  body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #FFB400;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .imagens {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .imagens img {
+      width: 300px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Botões de navegação */
+    .botoes-lado-a-lado {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .btn-voltar, .btn-prosseguir {
+      padding: 10px 20px;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .btn-voltar {
+      background-color: #777;
+    }
+
+    .btn-voltar:hover {
+      background-color: #555;
+    }
+
+    .btn-prosseguir {
+      background-color: #FFB400;
+    }
+
+    .btn-prosseguir:hover {
+      background-color: #e6a500;
+    }
+
+  </style>
+</head>
+<body>
+    <nav>
+      <!-- LOGO E TEXTO -->
+        <a href="index.html" class="logo-link">
+          <div class="logo">
+            Beeway 🐝
+          </div>
+        </a>
+
+      <!-- LINKS -->
+      <div class="nav-links">
+                <a href="index.html">Início</a>
+                <a href="oqueelogistica.html">O que é Logística?</a>
+                <a href="logisticaintegrada.html">Logística Integrada</a>
+                <a href="cadeiadesuprimentos.html">Cadeia de Suprimentos</a>
+                <a href="construção.html">Sustentabilidade</a>
+                <a href="blog.html">Blog</a>
+                <a href="sobrenós.html">Sobre Nós</a>
+                <a href="contato.html">Contato</a>
+
+      </div>
+    </nav>
+
+
+
+
+
+
+
+
+      <div class="container">
+        <h1>O que é Logística?</h1>
+        
+        <div class="images">
+            <img src="/Des1gnON - Blog de Design e Criatividade_files/01-A-390x290.png" alt="Imagem de Logística">
+          <p>A logística é uma área fundamental para o funcionamento das empresas e da sociedade como um todo. Ela pode ser definida como o processo de planejar, implementar e controlar, de forma eficiente, o fluxo e a armazenagem de produtos, serviços e informações, desde o ponto de origem até o consumidor final. 
+            
+          <p>Esse conjunto de atividades busca garantir que os bens cheguem ao destino certo, no prazo adequado, em perfeitas condições e com o menor custo possível.
+Dentro da logística estão incluídas várias etapas importantes,
+como o transporte, a armazenagem, a gestão de estoques, a distribuição, o controle de suprimentos, o processamento de pedidos e até mesmo a logística reversa, que cuida do retorno de produtos para troca, devolução ou reciclagem.</p>
+
+          <img src="/Des1gnON - Blog de Design e Criatividade_files/Capa-390x290(1).jpg" alt="Imagem de Logística">    
+        <p>Todas essas etapas precisam estar integradas para que a empresa consiga operar de forma competitiva e eficiente.
+A importância da logística vai além da entrega de mercadorias. </p>
+
+        </div>
+        <p>A logística é essencial para o transporte, armazenamento e distribuição de produtos de maneira eficiente e segura.</p>
+    </div>
+
+
+    <div class="centralizar">
+    <div class="botoes-lado-a-lado">
+      <a href="index.html" class="btn-voltar">← Voltar</a>
+      <a href="logisticaintegrada.html" class="btn-prosseguir">Prosseguir →</a>
+    </div>
+  </div>
+
+    
+
+  <!-- Footer -->
+<footer style="background-color:#2E3B4E; color:#fff; padding:40px 20px; font-family:Arial,sans-serif;">
+  <div style="max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start; gap:20px;">
+
+    <!-- Esquerda: Nome do site e slogan -->
+    <div style="flex:1; min-width:200px;">
+      <h2 style="margin:0; font-size:1.5em;">Beeway Logística</h2>
+      <p style="margin:5px 0 10px 0; font-size:1em; font-style:italic;">Simplicando a Logística para você</p>
+      <p style="margin:0; font-size:0.9em;">© 2025. Todos os direitos reservados.</p>
+    </div>
+
+    <!-- Coluna: Contato -->
+    <div style="flex:1; min-width:150px;">
+      <h3 style="margin-bottom:10px; font-size:1.1em;">Contato</h3>
+      <p style="margin:0 0 5px 0;">✉️ contato@beeway.com</p>
+      <p style="margin:0;">📞 +55 11 99999-9999</p>
+    </div>
+
+    <!-- Coluna: Parcerias -->
+    <div style="flex:1; min-width:150px;">
+      <h3 style="margin-bottom:10px; font-size:1.1em;">Parcerias</h3>
+      <p style="margin:0 0 5px 0;">💼 Empresas</p>
+      <p style="margin:0;">🤝 Transportadoras</p>
+      <p style="margin:0;">📦 Fornecedores</p>
+    </div>
+
+    <!-- Coluna: Conteúdos -->
+    <div style="flex:1; min-width:150px;">
+      <h3 style="margin-bottom:10px; font-size:1.1em;">Conteúdos</h3>
+      <p style="margin:0 0 5px 0;">📄 Blog</p>
+      <p style="margin:0 0 5px 0;">🎥 Vídeos</p>
+      <p style="margin:0;">📌 Guias e Tutoriais</p>
+    </div>
+
+  </div>
+</footer>
+
+
+
+</body>
+</html>

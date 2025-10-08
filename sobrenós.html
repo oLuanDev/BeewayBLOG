@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre Nós - Beeway Logística</title>
+  <style>
+    body {
+      margin:0;
+      font-family: Arial, sans-serif;
+      background-color:#f4f4f4;
+      color:#333;
+    }
+
+    header {
+      background-color:#2E3B4E;
+      color:#fff;
+      padding:50px 20px;
+      text-align:center;
+    }
+
+    header h1 {
+      margin:0;
+      font-size:2.5em;
+    }
+
+    header p {
+      margin-top:10px;
+      font-style:italic;
+      font-size:1.2em;
+    }
+
+    .team-section {
+      max-width:1200px;
+      margin:50px auto;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:30px;
+      padding:0 20px;
+    }
+
+    .team-card {
+      background-color:#fff;
+      border-radius:15px;
+      width:260px;
+      text-align:center;
+      box-shadow:0 3px 12px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor:pointer;
+    }
+
+    .team-card:hover {
+      transform: translateY(-8px);
+      box-shadow:0 8px 25px rgba(0,0,0,0.25);
+    }
+
+    .team-card img {
+      width:150px;
+      height:150px;
+      border-radius:50%;
+      object-fit:cover;
+      margin:20px 0 15px 0;
+      border:4px solid #FFB400; /* destaque amarelo */
+    }
+
+    .team-info h3 {
+      margin:5px 0 5px 0;
+      font-size:1.4em;
+      color:#2E3B4E;
+    }
+
+    .team-info p.role {
+      margin:0 0 10px 0;
+      font-weight:bold;
+      font-size:1.05em;
+      color:#FFB400;
+    }
+
+    .team-info p.description {
+      font-size:0.95em;
+      line-height:1.4;
+      color:#555;
+      padding:0 10px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Sobre Nós</h1>
+    <p>Conheça a equipe que simplifica a logística para você</p>
+  </header>
+
+  <!-- Seção da equipe -->
+  <section class="team-section">
+
+    <!-- Matheus Timóteo -->
+    <div class="team-card">
+      <img src="/matheus.png" alt="Matheus Timóteo">
+      <div class="team-info">
+        <h3>Matheus Timóteo</h3>
+        <p class="role">Criatividade</p>
+        <p class="description">Responsável por ideias inovadoras, soluções criativas e design dentro da equipe.</p>
+      </div>
+    </div>
+
+    <!-- Denise Frois -->
+    <div class="team-card">
+      <img src="/denise.png" alt="Denise Frois">
+      <div class="team-info">
+        <h3>Denise Frois</h3>
+        <p class="role">Estratégista e Conteudista</p>
+        <p class="description">Planeja estratégias, cria conteúdos relevantes e garante que a comunicação da equipe seja eficaz.</p>
+      </div>
+    </div>
+
+    <!-- Luan de Andrade -->
+    <div class="team-card">
+      <img src="/" alt="Luan de Andrade">
+      <div class="team-info">
+        <h3>Luan de Andrade</h3>
+        <p class="role">Técnico e Executor</p>
+        <p class="description">Responsável pela execução das tarefas, implementação de processos e suporte técnico da equipe.</p>
+      </div>
+    </div>
+
+  </section>
+
+</body>
+</html>
